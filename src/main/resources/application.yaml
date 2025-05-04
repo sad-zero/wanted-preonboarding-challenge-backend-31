@@ -1,0 +1,11 @@
+server:
+    port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/wanted
+    username: wanted
+    password: wanted
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
