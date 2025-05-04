@@ -2,6 +2,9 @@ package kr.co.wanted.backend31.common;
 
 import java.util.Map;
 
+import lombok.ToString;
+
+@ToString(callSuper = true)
 public class InvalidInputException extends BaseException {
 
     public InvalidInputException() {
@@ -12,4 +15,11 @@ public class InvalidInputException extends BaseException {
         super(ErrorCode.INVALID_INPUT, detail);
     }
 
+    public InvalidInputException(RuntimeException e) {
+        super(ErrorCode.INVALID_INPUT, e);
+    }
+
+    public InvalidInputException(Map<String, Object> detail, RuntimeException e) {
+        super(ErrorCode.INVALID_INPUT, detail, e);
+    }
 }

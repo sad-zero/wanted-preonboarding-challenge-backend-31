@@ -2,6 +2,9 @@ package kr.co.wanted.backend31.common;
 
 import java.util.Map;
 
+import lombok.ToString;
+
+@ToString(callSuper = true)
 public class ConflictException extends BaseException {
 
     public ConflictException() {
@@ -10,5 +13,13 @@ public class ConflictException extends BaseException {
 
     public ConflictException(Map<String, Object> detail) {
         super(ErrorCode.CONFLICT, detail);
+    }
+    
+    public ConflictException(RuntimeException e) {
+        super(ErrorCode.CONFLICT, e);
+    }
+
+    public ConflictException(Map<String, Object> detail, RuntimeException e) {
+        super(ErrorCode.CONFLICT, detail, e);
     }
 }

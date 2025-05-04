@@ -2,6 +2,9 @@ package kr.co.wanted.backend31.common;
 
 import java.util.Map;
 
+import lombok.ToString;
+
+@ToString(callSuper = true)
 public class UnauthorizedException extends BaseException {
 
     public UnauthorizedException() {
@@ -12,4 +15,11 @@ public class UnauthorizedException extends BaseException {
         super(ErrorCode.UNAUTHORIZED, detail);
     }
 
+    public UnauthorizedException(RuntimeException e) {
+        super(ErrorCode.UNAUTHORIZED, e);
+    }
+
+    public UnauthorizedException(Map<String, Object> detail, RuntimeException e) {
+        super(ErrorCode.UNAUTHORIZED, detail, e);
+    }
 }
