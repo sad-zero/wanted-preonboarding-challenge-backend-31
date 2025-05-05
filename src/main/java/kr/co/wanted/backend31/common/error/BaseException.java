@@ -1,4 +1,4 @@
-package kr.co.wanted.backend31.common;
+package kr.co.wanted.backend31.common.error;
 
 import java.util.Map;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package kr.co.wanted.backend31.common;
+package kr.co.wanted.backend31.common.error;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

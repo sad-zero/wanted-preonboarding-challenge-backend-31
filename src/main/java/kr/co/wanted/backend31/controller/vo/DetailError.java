@@ -3,7 +3,7 @@ package kr.co.wanted.backend31.controller.vo;
 import java.util.Map;
 import java.util.Objects;
 
-import kr.co.wanted.backend31.common.BaseException;
+import kr.co.wanted.backend31.common.error.BaseException;
 
 public record DetailError(String code, String message, Map<String, Object> details) {
     public DetailError {

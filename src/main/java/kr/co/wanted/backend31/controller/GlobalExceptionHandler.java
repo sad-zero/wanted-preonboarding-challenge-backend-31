@@ -4,12 +4,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import kr.co.wanted.backend31.common.ConflictException;
-import kr.co.wanted.backend31.common.ForbiddenException;
-import kr.co.wanted.backend31.common.InternalErrorException;
-import kr.co.wanted.backend31.common.InvalidInputException;
-import kr.co.wanted.backend31.common.ResourceNotFoundException;
-import kr.co.wanted.backend31.common.UnauthorizedException;
+import kr.co.wanted.backend31.common.error.ConflictException;
+import kr.co.wanted.backend31.common.error.ForbiddenException;
+import kr.co.wanted.backend31.common.error.InternalErrorException;
+import kr.co.wanted.backend31.common.error.InvalidInputException;
+import kr.co.wanted.backend31.common.error.ResourceNotFoundException;
+import kr.co.wanted.backend31.common.error.UnauthorizedException;
 import kr.co.wanted.backend31.controller.vo.DetailError;
 import kr.co.wanted.backend31.controller.vo.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
