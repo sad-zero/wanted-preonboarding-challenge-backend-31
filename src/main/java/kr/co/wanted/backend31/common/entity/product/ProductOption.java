@@ -1,5 +1,6 @@
-package kr.co.wanted.backend31.common.entity.category;
+package kr.co.wanted.backend31.common.entity.product;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -13,15 +14,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import kr.co.wanted.backend31.common.entity.product.ProductCategory;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "categories")
-public class Category {
+@Table(name = "product_options")
+public class ProductOption {
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,21 +30,18 @@ public class Category {
 
     @Column(name = "name")
     private String name;
-    @Column(name = "slug")
-    private String slug;
-    @Column(name = "description")
-    private String description;
-    @Column(name = "level")
-    private Integer level;
-    @Column(name = "image_url")
-    private String imageUrl;
+    @Column(name = "additional_price")
+    private BigDecimal additionalPrice;
+    @Column(name = "sku")
+    private String sku;
+    @Column(name = "stock")
+    private Integer stock;
+    @Column(name = "display_order")
+    private Integer displayOrder;
 
-    @JoinColumn(name = "parent_id")
+    @JoinColumn(name = "option_group_id")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Category parentCategory;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "parentCategory", cascade = CascadeType.ALL)
-    private List<Category> childrens;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade = CascadeType.ALL)
-    private List<ProductCategory> productCategories;
+    private ProductOptionGroup optionGroup;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "option", cascade = CascadeType.ALL)
+    private List<ProductImage> images;
 }
