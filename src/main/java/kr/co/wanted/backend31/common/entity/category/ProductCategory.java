@@ -1,4 +1,4 @@
-package kr.co.wanted.backend31.common.entity.product;
+package kr.co.wanted.backend31.common.entity.category;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import kr.co.wanted.backend31.common.entity.category.Category;
+import kr.co.wanted.backend31.common.entity.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 

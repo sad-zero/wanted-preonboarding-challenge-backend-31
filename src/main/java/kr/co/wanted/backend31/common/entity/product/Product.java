@@ -19,7 +19,9 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import kr.co.wanted.backend31.common.entity.brand.Brand;
+import kr.co.wanted.backend31.common.entity.category.ProductCategory;
 import kr.co.wanted.backend31.common.entity.seller.Seller;
+import kr.co.wanted.backend31.common.entity.tag.ProductTag;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -66,4 +68,8 @@ public class Product {
     private List<ProductOptionGroup> optionGroups;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
     private List<ProductImage> images;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
+    private List<ProductTag> tags;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
+    private List<ProductReview> reviews;
 }
