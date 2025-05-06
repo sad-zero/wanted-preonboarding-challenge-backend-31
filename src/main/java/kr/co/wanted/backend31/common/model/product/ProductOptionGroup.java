@@ -13,12 +13,16 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "product_option_groups")
@@ -34,6 +38,7 @@ public class ProductOptionGroup {
     @Column(name = "display_order")
     private Integer displayOrder;
 
+    @Setter(AccessLevel.PACKAGE)
     @JoinColumn(name = "product_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;

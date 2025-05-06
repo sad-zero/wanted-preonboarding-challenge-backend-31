@@ -15,8 +15,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import kr.co.wanted.backend31.common.model.user.User;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @NoArgsConstructor
@@ -46,6 +48,7 @@ public class ProductReview {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @Setter(AccessLevel.PACKAGE)
     @JoinColumn(name = "product_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;

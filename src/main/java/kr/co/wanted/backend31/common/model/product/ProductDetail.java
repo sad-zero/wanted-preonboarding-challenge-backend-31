@@ -15,12 +15,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "product_details")
@@ -48,6 +52,7 @@ public class ProductDetail {
     @Column(name = "additional_info")
     private Map<String, Object> additionalInfo;
 
+    @Setter(AccessLevel.PACKAGE)
     @JoinColumn(name = "product_id")
     @OneToOne(fetch = FetchType.LAZY)
     private Product product;

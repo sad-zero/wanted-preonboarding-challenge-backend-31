@@ -3,7 +3,7 @@ package kr.co.wanted.backend31.common.model.product.specification;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-import kr.co.wanted.backend31.common.model.category.ProductCategory;
+import kr.co.wanted.backend31.common.model.product.ProductCategory;
 import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
 
