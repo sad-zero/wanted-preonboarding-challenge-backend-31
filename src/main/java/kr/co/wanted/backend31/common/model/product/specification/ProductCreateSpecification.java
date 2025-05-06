@@ -8,14 +8,12 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import kr.co.wanted.backend31.common.model.brand.Brand;
 import kr.co.wanted.backend31.common.model.product.Product;
-import kr.co.wanted.backend31.common.model.seller.Seller;
 import lombok.Builder;
 
 @Builder
 public record ProductCreateSpecification(String name, String slug, String shortDescription, String fullDescription,
-        Seller seller, Brand brand, String status, ProductDetailCreateSpecification detailSpec,
+        Long sellerId, Long brandId, String status, ProductDetailCreateSpecification detailSpec,
         ProductPriceCreateSpecification priceSpec, List<ProductCategoryCreateSpecification> categorySpecs,
         List<ProductOptionGroupCreateSpecification> optionGroupSpecs, List<ProductImageCreateSpecification> imageSpecs,
         List<ProductTagCreateSpecification> tagSpecs) implements Predicate<Product> {
@@ -28,8 +26,8 @@ public record ProductCreateSpecification(String name, String slug, String shortD
         Objects.requireNonNull(status);
         Objects.requireNonNull(detailSpec);
         Objects.requireNonNull(priceSpec);
-        Objects.requireNonNull(seller);
-        Objects.requireNonNull(brand);
+        Objects.requireNonNull(sellerId);
+        Objects.requireNonNull(brandId);
         categorySpecs = Collections.unmodifiableList(categorySpecs);
         categorySpecs.forEach(Objects::requireNonNull);
         optionGroupSpecs = Collections.unmodifiableList(optionGroupSpecs);
@@ -70,8 +68,8 @@ public record ProductCreateSpecification(String name, String slug, String shortD
                 && slug.equals(t.getSlug())
                 && shortDescription.equals(t.getShortDescription())
                 && fullDescription.equals(t.getFullDescription())
-                && seller.equals(t.getSeller())
-                && brand.equals(t.getBrand())
+                && sellerId.equals(t.getSeller().getId())
+                && brandId.equals(t.getBrand().getId())
                 && status.equals(t.getStatus())
                 && detailSpec.test(t.getDetail())
                 && priceSpec.test(t.getPrice())
