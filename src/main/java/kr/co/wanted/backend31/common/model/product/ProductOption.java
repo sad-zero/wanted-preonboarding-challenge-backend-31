@@ -1,4 +1,4 @@
-package kr.co.wanted.backend31.common.entity.product;
+package kr.co.wanted.backend31.common.model.product;
 
 import java.math.BigDecimal;
 import java.util.List;

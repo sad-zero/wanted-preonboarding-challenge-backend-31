@@ -1,4 +1,4 @@
-package kr.co.wanted.backend31.common.entity.product.specification;
+package kr.co.wanted.backend31.common.model.product.specification;
 
 import java.util.Collections;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import kr.co.wanted.backend31.common.entity.product.ProductOptionGroup;
+import kr.co.wanted.backend31.common.model.product.ProductOptionGroup;
 import lombok.Builder;
 
 /**

@@ -1,4 +1,4 @@
-package kr.co.wanted.backend31.common.entity.product;
+package kr.co.wanted.backend31.common.model.product;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import kr.co.wanted.backend31.common.entity.user.User;
+import kr.co.wanted.backend31.common.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 

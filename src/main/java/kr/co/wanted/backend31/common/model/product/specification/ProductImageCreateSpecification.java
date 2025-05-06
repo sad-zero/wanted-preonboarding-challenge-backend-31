@@ -1,10 +1,10 @@
-package kr.co.wanted.backend31.common.entity.product.specification;
+package kr.co.wanted.backend31.common.model.product.specification;
 
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-import kr.co.wanted.backend31.common.entity.product.ProductImage;
+import kr.co.wanted.backend31.common.model.product.ProductImage;
 import lombok.Builder;
 
 /**

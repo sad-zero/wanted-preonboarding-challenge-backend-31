@@ -1,4 +1,4 @@
-package kr.co.wanted.backend31.common.entity.product.specification;
+package kr.co.wanted.backend31.common.model.product.specification;
 
 import java.util.Collections;
 import java.util.List;
@@ -8,9 +8,9 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import kr.co.wanted.backend31.common.entity.brand.Brand;
-import kr.co.wanted.backend31.common.entity.product.Product;
-import kr.co.wanted.backend31.common.entity.seller.Seller;
+import kr.co.wanted.backend31.common.model.brand.Brand;
+import kr.co.wanted.backend31.common.model.product.Product;
+import kr.co.wanted.backend31.common.model.seller.Seller;
 import lombok.Builder;
 
 @Builder

@@ -1,4 +1,4 @@
-package kr.co.wanted.backend31.common.entity.tag;
+package kr.co.wanted.backend31.common.model.category;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import kr.co.wanted.backend31.common.entity.product.Product;
+import kr.co.wanted.backend31.common.model.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,18 +18,22 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "product_tags")
-public class ProductTag {
+@Table(name = "product_categories")
+public class ProductCategory {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "is_primary")
+    private boolean isPrimary;
+
     @JoinColumn(name = "product_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
-    @JoinColumn(name = "tag_id")
+    @JoinColumn(name = "category_id")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Tag tag;
+    private Category category;
+
 }

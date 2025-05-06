@@ -1,10 +1,10 @@
-package kr.co.wanted.backend31.common.entity.product.specification;
+package kr.co.wanted.backend31.common.model.product.specification;
 
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-import kr.co.wanted.backend31.common.entity.product.ProductOption;
+import kr.co.wanted.backend31.common.model.product.ProductOption;
 import lombok.Builder;
 
 /**

@@ -1,4 +1,4 @@
-package kr.co.wanted.backend31.common.entity.seller;
+package kr.co.wanted.backend31.common.model.seller;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -15,7 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import kr.co.wanted.backend31.common.entity.product.Product;
+import kr.co.wanted.backend31.common.model.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

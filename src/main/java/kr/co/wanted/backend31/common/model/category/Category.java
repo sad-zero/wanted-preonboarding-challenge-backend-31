@@ -1,4 +1,4 @@
-package kr.co.wanted.backend31.common.entity.brand;
+package kr.co.wanted.backend31.common.model.category;
 
 import java.util.List;
 
@@ -9,9 +9,10 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import kr.co.wanted.backend31.common.entity.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,8 +21,8 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "brands")
-public class Brand {
+@Table(name = "categories")
+public class Category {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +34,17 @@ public class Brand {
     private String slug;
     @Column(name = "description")
     private String description;
-    @Column(name = "logo_url")
-    private String logoUrl;
-    @Column(name = "website")
-    private String website;
+    @Column(name = "level")
+    private Integer level;
+    @Column(name = "image_url")
+    private String imageUrl;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "brand", cascade = CascadeType.ALL)
-    private List<Product> products;
+    @JoinColumn(name = "parent_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Category parentCategory;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "parentCategory", cascade = CascadeType.ALL)
+    private List<Category> childrens;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade = CascadeType.ALL)
+    private List<ProductCategory> productCategories;
 }
