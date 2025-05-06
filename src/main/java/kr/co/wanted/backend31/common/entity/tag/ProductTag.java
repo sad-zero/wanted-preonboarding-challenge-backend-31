@@ -11,9 +11,11 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import kr.co.wanted.backend31.common.entity.product.Product;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "product_tags")

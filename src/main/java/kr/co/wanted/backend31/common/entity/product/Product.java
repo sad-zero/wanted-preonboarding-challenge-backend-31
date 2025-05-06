@@ -23,9 +23,11 @@ import kr.co.wanted.backend31.common.entity.category.ProductCategory;
 import kr.co.wanted.backend31.common.entity.seller.Seller;
 import kr.co.wanted.backend31.common.entity.tag.ProductTag;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Getter
 @Table(name = "products")
 @AllArgsConstructor
 @NoArgsConstructor
@@ -59,7 +61,7 @@ public class Product {
     private Brand brand;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
-    private ProductDetail details;
+    private ProductDetail detail;
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
     private ProductPrice price;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
