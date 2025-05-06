@@ -17,10 +17,12 @@ import jakarta.persistence.Table;
 import kr.co.wanted.backend31.common.model.user.User;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "reviews")
