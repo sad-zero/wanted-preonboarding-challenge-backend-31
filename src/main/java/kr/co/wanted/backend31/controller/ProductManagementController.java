@@ -25,11 +25,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/products", consumes = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/products")
 public class ProductManagementController {
     private final ProductManagementService managementService;
 
-    @PostMapping(value = "")
+    @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<SuccessResponse<ProductCreateResponse>> create(
             @Valid @RequestBody ProductCreateRequest request) {
         log.info("POST /products: {}", request);
