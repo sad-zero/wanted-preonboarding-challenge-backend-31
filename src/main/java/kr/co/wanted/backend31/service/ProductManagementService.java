@@ -10,7 +10,6 @@ import java.util.stream.IntStream;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import jakarta.validation.constraints.PositiveOrZero;
 import kr.co.wanted.backend31.common.error.InvalidInputException;
 import kr.co.wanted.backend31.common.error.ResourceNotFoundException;
 import kr.co.wanted.backend31.common.model.category.Category;
