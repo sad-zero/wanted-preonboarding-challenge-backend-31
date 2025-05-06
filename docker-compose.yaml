@@ -22,5 +22,21 @@ services:
       - ./data/product_options.sql:/docker-entrypoint-initdb.d/07.product_options.sql
       - ./data/users.sql:/docker-entrypoint-initdb.d/08.users.sql
       - ./data/reviews.sql:/docker-entrypoint-initdb.d/09.reviews.sql
+    networks:
+      - wanted
+  server:
+    image: backend31:0.0.1-SNAPSHOT
+    container_name: server
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - postgresql
+    networks:
+      - wanted
 volumes:
   postgresql:
+networks:
+  wanted:
+    driver: bridge
