@@ -14,6 +14,6 @@ public enum ErrorCode {
     INTERNAL_ERROR("INTERNAL_ERROR", "서버 내부 오류", "500");
 
     private final String code;
-    private final String status;
     private final String message;
+    private final String status;
 }
