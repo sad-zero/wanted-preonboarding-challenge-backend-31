@@ -6,10 +6,12 @@ import java.util.function.Predicate;
 
 import kr.co.wanted.backend31.common.model.product.ProductPrice;
 import lombok.Builder;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ProductPriceCreateSpecification
  */
+@Slf4j
 @Builder
 public record ProductPriceCreateSpecification(BigDecimal basePrice, BigDecimal salePrice, BigDecimal costPrice,
         String currency, BigDecimal taxRate) implements Predicate<ProductPrice> {
@@ -24,10 +26,14 @@ public record ProductPriceCreateSpecification(BigDecimal basePrice, BigDecimal s
 
     @Override
     public boolean test(ProductPrice t) {
-        return basePrice.equals(t.getBasePrice())
+        final var result = basePrice.equals(t.getBasePrice())
                 && salePrice.equals(t.getSalePrice())
                 && costPrice.equals(t.getCostPrice())
                 && currency.equals(t.getCurrency())
                 && taxRate.equals(t.getTaxRate());
+        if (!result) {
+            log.warn("validation fails");
+        }
+        return result;
     }
 }

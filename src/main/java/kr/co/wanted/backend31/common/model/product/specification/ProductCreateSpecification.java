@@ -10,7 +10,9 @@ import java.util.stream.IntStream;
 
 import kr.co.wanted.backend31.common.model.product.Product;
 import lombok.Builder;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Builder
 public record ProductCreateSpecification(String name, String slug, String shortDescription, String fullDescription,
         Long sellerId, Long brandId, String status, ProductDetailCreateSpecification detailSpec,
@@ -64,7 +66,7 @@ public record ProductCreateSpecification(String name, String slug, String shortD
             }
         }
 
-        return name.equals(t.getName())
+        final var result = name.equals(t.getName())
                 && slug.equals(t.getSlug())
                 && shortDescription.equals(t.getShortDescription())
                 && fullDescription.equals(t.getFullDescription())
@@ -77,6 +79,10 @@ public record ProductCreateSpecification(String name, String slug, String shortD
                 && Tuple.zip(optionGroupSpecs, t.getOptionGroups()).stream().allMatch(Tuple::test)
                 && Tuple.zip(imageSpecs, t.getImages()).stream().allMatch(Tuple::test)
                 && Tuple.zip(tagSpecs, t.getTags()).stream().allMatch(Tuple::test);
+        if (!result) {
+            log.warn("validation fails");
+        }
+        return result;
     }
 
 }

@@ -5,10 +5,12 @@ import java.util.function.Predicate;
 
 import kr.co.wanted.backend31.common.model.category.ProductCategory;
 import lombok.Builder;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ProductCategoryCreateSpecification
  */
+@Slf4j
 @Builder
 public record ProductCategoryCreateSpecification(boolean isPrimary, Long categoryId)
         implements Predicate<ProductCategory> {
@@ -19,7 +21,11 @@ public record ProductCategoryCreateSpecification(boolean isPrimary, Long categor
 
     @Override
     public boolean test(ProductCategory t) {
-        return isPrimary == t.isPrimary()
+        final var result = isPrimary == t.isPrimary()
                 && categoryId.equals(t.getCategory().getId());
+        if (!result) {
+            log.warn("validation fails");
+        }
+        return result;
     }
 }

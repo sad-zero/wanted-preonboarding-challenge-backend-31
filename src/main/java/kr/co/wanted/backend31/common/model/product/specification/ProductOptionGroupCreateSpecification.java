@@ -10,10 +10,12 @@ import java.util.stream.IntStream;
 
 import kr.co.wanted.backend31.common.model.product.ProductOptionGroup;
 import lombok.Builder;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ProductOptionGroupCreateSpecification
  */
+@Slf4j
 @Builder
 public record ProductOptionGroupCreateSpecification(String name, Integer displayOrder,
         List<ProductOptionCreateSpecification> optionSpecs) implements Predicate<ProductOptionGroup> {
@@ -50,9 +52,13 @@ public record ProductOptionGroupCreateSpecification(String name, Integer display
                 return spec.test(target);
             }
         }
-        return name.equals(t.getName())
+        final var result = name.equals(t.getName())
                 && displayOrder.equals(t.getDisplayOrder())
                 && Tuple.zip(optionSpecs, t.getOptions()).stream().allMatch(Tuple::test);
+        if (!result) {
+            log.warn("validation fails");
+        }
+        return result;
     }
 
 }

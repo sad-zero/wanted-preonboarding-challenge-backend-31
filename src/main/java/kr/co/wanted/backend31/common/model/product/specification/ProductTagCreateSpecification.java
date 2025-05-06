@@ -5,10 +5,12 @@ import java.util.function.Predicate;
 
 import kr.co.wanted.backend31.common.model.tag.ProductTag;
 import lombok.Builder;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ProductTagCreateSpecification
  */
+@Slf4j
 @Builder
 public record ProductTagCreateSpecification(Long tagId) implements Predicate<ProductTag> {
 
@@ -18,7 +20,11 @@ public record ProductTagCreateSpecification(Long tagId) implements Predicate<Pro
 
     @Override
     public boolean test(ProductTag t) {
-        return tagId.equals(t.getTag().getId());
+        final var result = tagId.equals(t.getTag().getId());
+        if (!result) {
+            log.warn("validation fails");
+        }
+        return result;
     }
 
 }
