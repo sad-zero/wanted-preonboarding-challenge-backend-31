@@ -4,13 +4,14 @@ import java.util.Map;
 import lombok.ToString;
 
 @ToString(callSuper = true)
-public class PostConditionContractException extends InternalErrorException {
+public class PostConditionContractException extends ContractException {
 
-  /**
-   * @param resp   operation's response
-   * @param reason error reason
-   */
-  public PostConditionContractException(Object resp, String reason) {
-    super(Map.of("response", resp, "reason", reason));
+  public PostConditionContractException(String contractPath, Map<String, Object> details) {
+    super(contractPath, details);
+  }
+
+  public PostConditionContractException(String contractPath, Map<String, Object> details,
+      RuntimeException e) {
+    super(contractPath, details, e);
   }
 }
